@@ -5,8 +5,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#welcome'
 
-  get 'users/new', to: "users#new", as: "new_user"
-  post 'users', to: "users#create", as: "users"
+  get  'users/new',     to: "users#new",           as: "new_user"
+  post 'users',         to: "users#create",        as: "users"
+
+  get   'sessions/new', to: "sessions#new",    as: "new_session"
+  post  'sessions',     to: "sessions#create", as: "sessions"
+  delete'sessions',     to: "sessions#destroy"
 
  #      Prefix Verb   URI Pattern                    Controller#Action
  #     tools GET    /tools(.:format)               tools#index
