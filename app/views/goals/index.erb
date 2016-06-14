@@ -1,0 +1,18 @@
+<h1> Goals Index </h1>
+
+<%= link_to "Add goal", new_goal_path %>
+
+<% @goals.each do |goal| %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Category: <%= goal.category.title %> | Title: <%= goal.title %> | Author: <%= goal.user.user_name %></h3>
+    </div>
+    <div class="panel-body">
+      <div class="well">
+        <%= goal.description %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
