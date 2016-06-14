@@ -5,6 +5,23 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#welcome'
 
+  get  'users/new',     to: "users#new",           as: "new_user"
+  post 'users',         to: "users#create",        as: "users"
+
+  get   'sessions/new', to: "sessions#new",    as: "new_session"
+  post  'sessions',     to: "sessions#create", as: "sessions"
+  delete'sessions',     to: "sessions#destroy"
+
+ #      Prefix Verb   URI Pattern                    Controller#Action
+ #     tools GET    /tools(.:format)               tools#index
+ #           POST   /tools(.:format)               tools#create
+ #  new_tool GET    /tools/new(.:format)           tools#new
+ # edit_tool GET    /tools/:id/edit(.:format)      tools#edit
+ #      tool GET    /tools/:id(.:format)           tools#show
+ #           PATCH  /tools/:id(.:format)           tools#update
+ #           PUT    /tools/:id(.:format)           tools#update
+ #           DELETE /tools/:id(.:format)           tools#destroy
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
