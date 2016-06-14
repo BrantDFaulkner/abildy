@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   post  'sessions',     to: "sessions#create", as: "sessions"
   delete'sessions',     to: "sessions#destroy"
 
+  get   'goals',        to: "goals#index",     as: "goals"
+  post 'goals', to: "goals#create"
+  get 'goals/new', to: "goals#new", as: "new_goal"
+
+
  #      Prefix Verb   URI Pattern                    Controller#Action
  #     tools GET    /tools(.:format)               tools#index
  #           POST   /tools(.:format)               tools#create

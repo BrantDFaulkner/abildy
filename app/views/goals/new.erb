@@ -1,0 +1,10 @@
+<%= form_for @goal do |f| %>
+  <%= f.label :category_id %>
+  <%= f.collection_select :category_id ,@categories,:id,:title %>
+  <%#= f.text_field :category_id %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.submit %>
+<% end %>
