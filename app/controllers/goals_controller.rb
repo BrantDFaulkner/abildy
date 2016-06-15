@@ -1,7 +1,7 @@
 class GoalsController < ApplicationController
 
   def index
-    @goals = Goal.all.includes(:category, :user)
+    @goals = Goal.all.includes(:category, :admin)
   end
 
   def new

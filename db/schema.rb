@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160614215335) do
   end
 
   create_table "goals", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "admin_id"
     t.integer "category_id"
     t.string  "title"
     t.text    "description"
