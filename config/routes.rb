@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get   'goals',        to: "goals#index",     as: "goals"
   post 'goals', to: "goals#create"
   get 'goals/new', to: "goals#new", as: "new_goal"
+  get 'goals/:goal_id',  to: "goals#show", as: "goal"
 
 
  #      Prefix Verb   URI Pattern                    Controller#Action
