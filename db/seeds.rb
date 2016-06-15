@@ -13,11 +13,17 @@ end
 
 # Create Primary User
 brang = User.create!(user_name: "brang", email: "brang@brang.com", password: "password")
-brang.goals.create!(admin_id: brang.id,
+goal = brang.goals.create!(
+  admin_id: brang.id,
   category_id: 1,
   title: "Brang's Goal",
   description: "Brang loves to make goals and acheive them with his fellow abildians!",
   )
+Participation.create!(
+  user_id: brang.id,
+  goal_id: goal.id,
+  )
+
 
 10.times do
   user = User.create!(user_name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password)
@@ -28,10 +34,14 @@ brang.goals.create!(admin_id: brang.id,
       status_id: 1,
     )
   end
-  Goal.create!(
+  goal = Goal.create!(
     admin_id: user.id,
     category_id: rand(1..5),
     title: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph,
+  )
+  Participation.create!(
+    user_id: user.id,
+    goal_id: goal.id,
   )
 end
