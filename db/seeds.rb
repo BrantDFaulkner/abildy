@@ -8,9 +8,14 @@
 
 
 category_titles = %w[Financial Intellectual Family Spiritual Physical]
+statuses = %w[Pending Approved Declined]
 
 category_titles.each do |title|
   Category.create!(title: title)
+end
+
+statuses.each do |title|
+  Status.create!(title: title)
 end
 
 User.create!(user_name: "brang", email: "brang@brang.com", password: "password", )

@@ -20,6 +20,9 @@ Rails.application.routes.draw do
 
   post 'requests',      to: "requests#create",    as: "requests"
 
+  post 'participations',      to: "participations#create",    as: "participations"
+
+
 
  #      Prefix Verb   URI Pattern                    Controller#Action
  #     tools GET    /tools(.:format)               tools#index
