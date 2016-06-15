@@ -3,3 +3,27 @@
 <h1><%=@goal.description%></h1>
 <h1><%=@category.title%></h1>
 <%= link_to "join this goal", requests_path, method: :post %>
+
+<h2>Participants</h2>
+<% @users.each do |user| %>
+  <p>
+    <%= user.user_name %>
+  </p>
+<% end %>
+
+
+
+<h2>Pending Requests</h2>
+
+<% @requests.each do |request| %>
+  <p>
+    Name: <%= request.user.user_name %>
+    Status: <%= request.status.title %>
+    <%= form_tag participations_path do  %>
+      <%= hidden_field_tag(:request_id, request.id) %>
+      <%= hidden_field_tag(:request_user_id, request.user_id) %>
+      <%= submit_tag "Accept" %>
+    <% end %>
+  </p>
+
+<% end %>

@@ -10,9 +10,8 @@ class GoalsController < ApplicationController
   end
 
   def create
-    # current_user.goals.create(title: params[:goal][:title], description: params[:goal][:description], category_id: params[:goal][:category_id])
-    current_user.goals.create(goal_params)
-
+    goal = current_user.goals.create(goal_params)
+    current_user.participations.create(goal_id: goal.id)
     redirect_to goals_path
   end
 
@@ -21,6 +20,9 @@ class GoalsController < ApplicationController
     @admin = @goal.admin
     @category = @goal.category
     session[:goal_id] = @goal.id
+
+    @requests = @goal.requests.where(status: 1)
+    @users = @goal.users
   end
 
 private
