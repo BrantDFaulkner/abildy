@@ -20,6 +20,7 @@ class GoalsController < ApplicationController
     @goal = Goal.find_by_id(params[:goal_id])
     @admin = @goal.admin
     @category = @goal.category
+    session[:goal_id] = @goal.id
   end
 
 private
