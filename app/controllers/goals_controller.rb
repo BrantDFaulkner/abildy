@@ -16,6 +16,13 @@ class GoalsController < ApplicationController
     redirect_to goals_path
   end
 
+  def show
+    @goal = Goal.find_by_id(params[:goal_id])
+    @admin = @goal.admin
+    @category = @goal.category
+    session[:goal_id] = @goal.id
+  end
+
 private
 
   def goal_params
