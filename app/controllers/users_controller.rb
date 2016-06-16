@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    User.create :user_name => params["user"]["user_name"], :email => params["user"]["email"], :password => params["user"]["password"]
+    user = User.create :user_name => params["user"]["user_name"], :email => params["user"]["email"], :password => params["user"]["password"]
+    session[:user_id] = user.id
     redirect_to root_path
   end
 
