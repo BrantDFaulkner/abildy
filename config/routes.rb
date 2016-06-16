@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   post 'participations',      to: "participations#create",    as: "participations"
 
 
+  get '/api/goals',  to: 'api/goals#index'
+
+
 
  #      Prefix Verb   URI Pattern                    Controller#Action
  #     tools GET    /tools(.:format)               tools#index
